@@ -10,6 +10,10 @@ def read_root():
     return {"Hello": "World"}
 
 
-# @app.get("/items/{item_id}")
-# def read_item(item_id: int, q: Optional[str] = None):
-#     return {"item_id": item_id, "q": q}
+@app.get("/recipes/{recipe_id}")
+def read_recipe(recipe_id: int):
+    return {"recipe_id": recipe_id}
+
+@app.post("/recipes/")
+def create_recipe(recipe_name: str):
+    return {"recipe_id": recipe_name}
