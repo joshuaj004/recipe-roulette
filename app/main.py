@@ -1,6 +1,6 @@
 from typing import Optional, Tuple, List
 
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException, Form
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy.sql.expression import func, select
@@ -56,7 +56,17 @@ def read_recipe(db: Session = Depends(get_db), recipe_id: int = None):
 
 
 @app.post("/recipes/")
-def create_recipe(recipe_name: str, vegearian: bool, db: Session = Depends(get_db)):
+def create_recipe(recipe_name: str, db: Session = Depends(get_db)):
+    db_record = models.Recipe(
+        name=recipe_name
+    )
+    db.add(db_record)
+    db.commit()
+    return {"recipe_id": db_record.id}
+
+
+@app.post("/recipes-form-submit/")
+def create_recipe(recipe_name: str = Form(...), db: Session = Depends(get_db)):
     db_record = models.Recipe(
         name=recipe_name
     )
