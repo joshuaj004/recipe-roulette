@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
     <title>Hello, world!</title>
 </head>
 
@@ -37,9 +38,24 @@
                                 <button id="RandomRecipeButton" type="submit" class="btn btn-primary"> Submit
                                     Recipe</button>
                             </form>
-
                         </div>
                     </div>
+                    <table class="table-striped border-success">
+                        <thead>
+                            <tr>
+                                <th data-field="id" data-sortable="true">
+                                    <span class="text-success">
+                                        Recipe ID
+                                    </span>
+                                </th>
+                                <th data-field="name" data-sortable="true">
+                                    <span class="text-success">
+                                        Recipe Name
+                                    </span>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
         </div>
@@ -55,6 +71,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
     <script src='index.js'></script>
 </body>
 
