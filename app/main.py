@@ -66,9 +66,10 @@ def create_recipe(recipe_name: str, db: Session = Depends(get_db)):
 
 
 @app.post("/recipes-form-submit/")
-def create_recipe(recipe_name: str = Form(...), db: Session = Depends(get_db)):
+def create_recipe(recipe_name: str = Form(...), recipe_url: str = Form(...), db: Session = Depends(get_db)):
     db_record = models.Recipe(
-        name=recipe_name
+        name=recipe_name,
+        url=recipe_url,
     )
     db.add(db_record)
     db.commit()

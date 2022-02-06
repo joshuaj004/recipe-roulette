@@ -15,6 +15,7 @@ function populateTable() {
         $('table').bootstrapTable({
             data: data
         });
+        $("table").linkify();
     });
 }
 
